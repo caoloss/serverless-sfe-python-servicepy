@@ -2,6 +2,11 @@ import json
 
 
 def hello(event, context):
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": True
+    }
+
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event
@@ -9,6 +14,7 @@ def hello(event, context):
 
     response = {
         "statusCode": 200,
+        "headers": headers,
         "body": json.dumps(body)
     }
 
