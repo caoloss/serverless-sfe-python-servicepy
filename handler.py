@@ -1,7 +1,10 @@
 import json
+from serverless_sdk import tag_event
 
 
 def hello(event, context):
+    tag_event('custom-tag', 'hello-world', {'custom': {'tag': 'data '}})
+
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": True
